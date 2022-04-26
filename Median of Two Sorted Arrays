@@ -1,1 +1,143 @@
 
+Median of Two Sorted Arrays
+in C++ and Python
+
+Problem Statement
+There are two sorted arrays A and B of sizes m and n respectively.
+
+Find the median of the two sorted arrays( The median of the array formed by merging both the arrays).
+
+Median: The middle element is found by ordering all elements in sorted order and picking out the one in the middle (or if there are two middle numbers, taking the mean of those two numbers).
+
+Median 1
+Median 2
+Examples:
+
+Input:  A[] = {1, 4, 5}, B[] = {2, 3}
+Output: 3
+Explanation:
+Merging both the arrays and arranging in ascending:
+[1, 2, 3, 4, 5]
+Hence, the median is 3
+
+Input: A[] = {1, 2, 3, 4}, B[] = {5, 6}
+Output: 3.5
+Explanation:
+Union of both arrays:
+{1, 2, 3, 4, 5, 6}
+Median = (3 + 4) / 2 = 3.5
+
+Simple approach: Using Extra Space
+The most basic approach is to merge both the sorted arrays using an auxiliary array. The median would be the middle element in the case of an odd-length array or the mean of both middle elements in the case of even length array.
+The merging of two sorted arrays is similar to the algorithm which we follow in merge sort.
+
+Algorithm
+
+The first element of both lists is compared. 
+If sorted in ascending order, the smaller element among two becomes a new element of the sorted list. 
+This procedure is repeated until both the smaller sublists are empty and the newly combined sublist covers all the elements of both the sublists.
+Maintain a variable count for the output array and if count equals (N + M) / 2, then it is the median of the odd length array and if it is even, store the mean of (N + M) / 2th and (N + M) / 2 – 1 th element.
+
+
+
+
+
+C++
+
+
+int getMedian(int A[], int B[], int n, int m)
+{
+    int i = 0;
+    int j = 0;
+    int count;
+    int m1 = -1, m2 = -1;
+ 
+    if((m + n) % 2 == 1)
+    {
+        for (count = 0; count <= (n + m)/2; count++)
+        {
+            if(i != n && j != m)
+            {
+                m1 = (A[i] > B[j]) ? B[j++] : A[i++];
+            }
+            else if(i < n)
+            {
+                m1 = A[i++];
+            }
+            else
+            {
+                m1 = B[j++];
+            }
+        }
+        return m1;
+    }
+    else
+    {
+        for (count = 0; count <= (n + m)/2; count++)
+        {
+            m2 = m1;
+            if(i != n && j != m)
+            {
+                m1 = (A[i] > B[j]) ? B[j++] : A[i++];
+            }
+            else if(i < n)
+            {
+                m1 = A[i++];
+            }
+            else
+            {
+                m1 = B[j++];
+            }
+        }
+        return (m1 + m2)/2;
+    }
+}
+
+
+
+python
+
+def getMedian(A, B, n, m) :
+ 
+    i = 0 
+    j = 0 
+    m1, m2 = -1, -1
+ 
+    if((m + n) % 2 == 1) :   
+        for count in range(((n + m) // 2) + 1) :       
+            if(i != n and j != m) :           
+                if A[i] > B[j] :
+                    m1 = B[j]
+                    j += 1
+                else :
+                    m1 = A[i]
+                    i += 1           
+            elif(i < n) :           
+                m1 = A[i]
+                i += 1
+          
+            # for case when j<m,
+            else :           
+                m1 = B[j]
+                j += 1       
+        return m1
+     
+    else :
+        for count in range(((n + m) // 2) + 1) :        
+            m2 = m1
+            if(i != n and j != m) :       
+                if A[i] > B[j] :
+                    m1 = B[j]
+                    j += 1
+                else :
+                    m1 = A[i]
+                    i += 1           
+            elif(i < n) :           
+                m1 = A[i]
+                i += 1
+             
+            # for case when j<m,
+            else :           
+                m1 = B[j]
+                j += 1       
+        return (m1 + m2)//2
