@@ -1,0 +1,28 @@
+Output:
+is false
+is false
+is false
+
+is false
+is false
+is false
+
+( is false
+( is false
+( is false
+
+())))))) is false
+())))))) is false
+())))))) is false
+
+(()((fff))()) is true
+(()((fff))()) is true
+(()((fff))()) is true
+
+(() is false
+(() is false
+(() is false
+
+()()()()()()()()()()()() is true
+()()()()()()()()()()()() is true
+()()()()()()()()()()()() is true
