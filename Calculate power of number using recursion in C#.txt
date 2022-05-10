@@ -1,0 +1,45 @@
+We know that nth power of a number x can be represented as :
+
+xn = x * x * ..n times… * x
+
+This can be written recursively as :
+
+xn/2 * xn/2 , if n is even
+(or)
+x * xn/2 * xn/2, if n is odd
+
+Here is a C# program that calculates xn using this approach :
+
+ 
+class Program
+    {       
+        static void Main(string[] args)
+        {
+ 
+         double x=   Power(10, 3);
+         Console.WriteLine(x);
+        }
+        internal static double Power(double @base, int exponent)
+        {
+            if (exponent < 0)
+            {
+                Console.Error.WriteLine("Usage of this function is limited to positive exponents only");
+                throw new Exception();
+            }
+            else if (exponent == 1)
+            {
+                return @base;
+            }
+            else if (exponent == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return @base * Power(@base, exponent - 1);
+            }
+        }
+    }
+ 
+Output :
+1000
