@@ -1,0 +1,19 @@
+Output:
+Only one node…
+Current Node Value : 100
+Total Node: 5
+Current Node Value : 300
+Total Node: 5
+Current Node Value : 500
+Total Node: 5
+Forward Direction…
+100
+200
+300
+400
+500
+Forward Direction…
+200
+300
+400
+500
