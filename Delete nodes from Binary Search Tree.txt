@@ -1,0 +1,27 @@
+
+public Node Delete(int key) {
+Node current = root;
+Node parent = root;
+bool isLeftChild = true;
+while (current.Data != key) {
+parent = current;
+if (key < current.Data) {
+isLeftChild = true;
+current = current.Right;
+else {
+isLeftChild = false;
+current = current.Right;
+}
+if (current == null)
+return false;
+}
+if ((current.Left == null) & (current.Right == null))
+if (current == root)
+root == null;
+else if (isLeftChild)
+parent.Left = null;
+else
+parent.Right = null;
+}
+// the rest of the class goes here
+}
