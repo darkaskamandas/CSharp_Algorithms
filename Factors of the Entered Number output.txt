@@ -1,0 +1,6 @@
+Enter the Number : 27
+The Factors are :
+1
+3
+9
+27
