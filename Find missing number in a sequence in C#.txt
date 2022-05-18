@@ -1,0 +1,21 @@
+
+public static IEnumerable SequenceFindMissings(this IList sequence)
+{
+ 
+    var missing = new List();
+ 
+    if ((sequence != null) &amp;&amp; (sequence.Any()))
+    {
+        sequence.Aggregate((seed, aggr) =&gt;
+                            {
+                                var diff = (aggr - seed) - 1;
+ 
+                                if (diff &gt; 0)
+                                    missing.AddRange(Enumerable.Range((aggr - diff), diff));
+ 
+                                return aggr;
+                            });
+    }
+ 
+    return missing;
+}
