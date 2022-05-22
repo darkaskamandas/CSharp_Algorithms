@@ -1,0 +1,9 @@
+Output:
+Please enter the string for hashing: Welcome to cce
+Original string: Welcome to cce
+Hash values:
+MD5 : SC4LSYSAkKILp2rPW1ZVpOP1WK7g
+SHA1 : E0CfoAleTy9lDL8PmqLlY76jg3k/as3G5DPe
+SHA256: p4OqMcDW33DzkGR7+UskcFv75yq/Jb7K49mRwRYHLdw0+HTwq3sS
+SHA384: Tq6F1p1Hhan+tGPLOS+T6ltPh7wvTtPqgvgd4BKCTPEGnXCOEQpcrm0IELEjnobkWKY9
+SHA512: UjtzgRAx4BWpMKYb1Qnrhn3Nlj84MrKNX1zJbNW33saM9IEtRmpzn4Ny6Y5oITg3TkSZ
