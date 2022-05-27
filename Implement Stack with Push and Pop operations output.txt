@@ -1,0 +1,22 @@
+Output:
+Stack MENU(size — 10)
+1. Add an element
+2. See the Top Element
+3. Remove the Top Element
+4. Display Stack Elements
+5. Exit
+Select your Choice : 1
+Enter the Element : 12
+Item Pushed Successfully!
+Select your choice :1
+Enter the Element : 45
+Item Pushed Successfully!
+Select your choice : 4
+Item 2 :45
+Item 1 :12
+Select your choice : 2
+Top element is : 45
+Select your choice : 3
+Element removed : 45
+Select your choice : 4
+Item 1 :12
