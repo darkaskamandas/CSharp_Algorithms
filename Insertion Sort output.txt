@@ -1,0 +1,14 @@
+Here is the output of the C# Program:
+
+The Array is :
+83
+12
+3
+34
+60
+The Sorted Array is :
+3
+12
+34
+60
+83
