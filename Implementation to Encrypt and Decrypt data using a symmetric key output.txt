@@ -1,0 +1,4 @@
+Input the Original Plain Text : welcome to cce!
+Pliantext : welcome to csharpstar !
+Encrypted : 1FJaiATQu8t5Mt23V+R1L1/Rj03JxYa18MSOHtpfYoA=
+Decrypted : welcome to cce!
