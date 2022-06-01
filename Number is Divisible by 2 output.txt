@@ -1,0 +1,3 @@
+Enter the Number :
+57
+Entered Number is Not Divisible by 2
