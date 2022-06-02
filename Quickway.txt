@@ -1,0 +1,27 @@
+
+public static bool IsSequenceBroken(this IEnumerable sequence)
+{
+    bool broken = false;
+ 
+    if (sequence != null) 
+    {
+        var sequenceAsList = sequence.ToList();
+ 
+        if (sequenceAsList.Any())
+        {
+            int lastValue = sequence.First();
+ 
+            broken = sequence.Any(value =&gt;
+                                    {
+                                        if ((value - lastValue) &gt; 1)
+                                            return true;
+ 
+                                        lastValue = value;
+ 
+                                        return false;
+                                    }); 
+        }
+    }
+ 
+    return broken;
+}
