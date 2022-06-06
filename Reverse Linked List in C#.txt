@@ -1,0 +1,33 @@
+
+public void ReverseLinkedList (LinkedList linkedList)
+{
+// ------------------------------------------------------------
+// Create a new linked list and add all items of given 
+// linked list to the copy linked list in reverse order
+// ------------------------------------------------------------
+ 
+LinkedList copyList = new LinkedList();
+ 
+// ------------------------------------------------------------
+// Start from the latest node
+// ------------------------------------------------------------
+ 
+LinkedListNode start = linkedList.Tail;
+ 
+// ------------------------------------------------------------
+// Traverse until the first node is found
+// ------------------------------------------------------------
+ 
+while (start != null)
+{
+// ------------------------------------------------------------
+// Add item to the new link list
+// ------------------------------------------------------------
+ 
+copyList.Add (start.Item);
+ 
+start = start.Previous;
+}
+ 
+linkedList = copyList;
+}
