@@ -1,0 +1,49 @@
+
+public void ReverseLinkedList (LinkedList linkedList)
+{
+// ------------------------------------------------------------
+// Create variables used in the swapping algorithm
+// ------------------------------------------------------------
+ 
+LinkedListNode firstNode; // This node will be the first node in the swapping
+LinkedListNode secondNode; // This node will be the second node in the swapping
+int numberOfRun; // This variable will be used to determine the number of swapping runs
+ 
+// ------------------------------------------------------------
+// Find the tail of the linked list
+// ------------------------------------------------------------
+ 
+// Assume that our linked list doesn’t have a property to find the tail of it.
+// In this case, to find the tail, we need to traverse through each node.
+// This variable is used to find the tail of the linked list
+LinkedListNode tail = linkedList.Head; // Start from first link list node 
+ // and go all the way to the end
+while (tail.Next != null)
+tail = tail.Next;
+ 
+// ------------------------------------------------------------
+// Assign variables
+// ------------------------------------------------------------
+ 
+firstNode = linkedList.Head;
+secondNode = tail;
+numberOfRun = linkedList.Length / 2; 
+// Division will always be integer since the numberOfRun variable is an integer
+ 
+// ------------------------------------------------------------
+// Swap node’s objects
+// ------------------------------------------------------------
+ 
+object tempObject; // This will be used in the swapping 2 objects
+for (int i=0; i < numberOfRun; i++)
+{
+// Swap the objects by using a 3rd temporary variable
+tempObject = firstNode.Item;
+firstNode.Item = secondNode.Item;
+secondNode.Item = tempObject;
+ 
+// Hop to the next node from the beginning and previous node from the end
+firstNode = firstNode.Next;
+secondNode = secondNode.Previous;
+}
+}
