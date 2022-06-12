@@ -1,0 +1,59 @@
+Bubble sort changes the postion of numbers or changing an unordered sequence into an ordered sequence.
+ 
+Bubble sort follows a simple logic. It compares adjacent elements in a loop and swaps them if they are not in order.
+ 
+Bubble sort is named this way because, in this sorting method, the smaller elements gradually bubble up to the top of the list.
+ 
+Bubble sort has worst-case and average complexity both О(n2), where n is the number of items being sorted.
+ 
+Let’s have a look at the implementation in C#.
+
+/*
+ * C# Program to Perform Bubble Sort
+ */
+using System;
+class bubblesort
+{
+        static void Main(string[] args)
+        {
+            int[] a = { 30, 20, 50, 40, 10 };  
+            int t;
+            Console.WriteLine("The Array is : ");
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine(a[i]);
+            }
+            for (int j = 0; j <= a.Length - 2; j++)
+            {
+                for (int i = 0; i <= a.Length - 2; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        t = a[i + 1];
+                        a[i + 1] = a[i];
+                        a[i] = t;
+                    }
+                }
+            }
+            Console.WriteLine("The Sorted Array :");
+            foreach (int aray in a)                         
+                Console.Write(aray + " ");
+            Console.ReadLine();
+        }
+    }
+Here is the output of the C# Program:
+
+
+ 
+The Array is :
+30
+20
+50
+40
+10
+The Sorted Array :
+10
+20
+30
+40
+50
