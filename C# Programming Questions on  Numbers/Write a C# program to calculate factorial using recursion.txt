@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace factorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, number, fact;
+            Console.WriteLine("Enter the Number");
+            number = int.Parse(Console.ReadLine());
+            fact = number;
+            for (i = number - 1; i >= 1; i--)
+            {
+                fact = fact * i;
+            }
+            Console.WriteLine("\nFactorial of Given Number is: "+fact);
+            Console.ReadLine();
+ 
+        }
+    }
+}
+Here is the output of the C# Program:
+
+Enter the Number
+5
+Factorial of Given Number is: 120
+
+You can calculate factorial using recursion and while loop also.
+
+2. Using Recursion:
+public double factorial_Recursion(int number)
+{
+    if (number == 1)
+        return 1;
+    else
+        return number * factorial_recursion(number - 1);
+}
