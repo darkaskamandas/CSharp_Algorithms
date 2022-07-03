@@ -1,0 +1,34 @@
+public void MergeSortedList(Node first, Node second)
+{
+  //we would be adding node from second list to first list
+  //If second node data id more than first one then exchange it
+  if(first.data.ToString().compareto(second.data.ToString()) > 0)
+  {
+   node t = first;
+   first = second;
+   second = first;
+  }
+head = first;//Assign head to first Node
+
+while ((first.next != null ) && (second != null))
+{
+     if (Convert.ToInt32(first.next.data.ToString())) < Convert.ToInt32(first.data.ToString()))
+     {
+     first = first.next;//iterate over the first node
+     }
+     else
+     {
+     Node n = first.next;
+     Node t = second.next;
+     first.next = second;
+     second.next = n;
+     first = first.next;
+     second = t;
+     }
+}
+if (first.next = null)
+    {
+    first.next =  second;
+    }
+
+}

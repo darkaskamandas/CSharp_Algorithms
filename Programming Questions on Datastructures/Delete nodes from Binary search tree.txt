@@ -1,0 +1,34 @@
+Removing a Leaf Node From a BST:
+Removing a leaf is the simplest case sincethere are no child nodes to take into consideration.All we have to do is set each child node of the target node’s parent to null. So, the node will still be there, but there will not be any references to the node.
+ 
+– The while loop takes us to the node we are deleting.
+– The first test is to see if the left child and the right child of that node are null.
+– Then we test to see if this node is the root node. If so, we set it to null, otherwise, we either set the left node of the parent to null (if isLeftChild is true) or we set the right node of the parent to null.
+ 
+
+public Node Delete(int key) {
+Node current = root;
+Node parent = root;
+bool isLeftChild = true;
+while (current.Data != key) {
+parent = current;
+if (key < current.Data) {
+isLeftChild = true;
+current = current.Right;
+else {
+isLeftChild = false;
+current = current.Right;
+}
+if (current == null)
+return false;
+}
+if ((current.Left == null) & (current.Right == null))
+if (current == root)
+root == null;
+else if (isLeftChild)
+parent.Left = null;
+else
+parent.Right = null;
+}
+// the rest of the class goes here
+}

@@ -1,0 +1,90 @@
+Create a new linked list and insert all elements from 1st linked list in reverse order
+Swapping starts from the first node’s object and the first node’s object is swapped with the last node’s object
+Assuming we have N nodes in the link list:
+Swap: 1st node’s object with Nth node’s object
+Swap: 2nd node’s object with (N-1)th node’s object
+Swap: 3rd node’s object with (N-2)th node’s object
+Way 1:
+
+ 
+public void ReverseLinkedList (LinkedList linkedList)
+{
+// ------------------------------------------------------------
+// Create a new linked list and add all items of given 
+// linked list to the copy linked list in reverse order
+// ------------------------------------------------------------
+
+LinkedList copyList = new LinkedList();
+
+// ------------------------------------------------------------
+// Start from the latest node
+// ------------------------------------------------------------
+
+LinkedListNode start = linkedList.Tail;
+
+// ------------------------------------------------------------
+// Traverse until the first node is found
+// ------------------------------------------------------------
+
+while (start != null)
+{
+// ------------------------------------------------------------
+// Add item to the new link list
+// ------------------------------------------------------------
+
+copyList.Add (start.Item);
+
+start = start.Previous;
+}
+
+linkedList = copyList;
+} 
+Way 2:
+public void ReverseLinkedList (LinkedList linkedList)
+{
+// ------------------------------------------------------------
+// Create variables used in the swapping algorithm
+// ------------------------------------------------------------
+
+LinkedListNode firstNode; // This node will be the first node in the swapping
+LinkedListNode secondNode; // This node will be the second node in the swapping
+int numberOfRun; // This variable will be used to determine the number of swapping runs
+
+// ------------------------------------------------------------
+// Find the tail of the linked list
+// ------------------------------------------------------------
+
+// Assume that our linked list doesn’t have a property to find the tail of it.
+// In this case, to find the tail, we need to traverse through each node.
+// This variable is used to find the tail of the linked list
+LinkedListNode tail = linkedList.Head;   // Start from first link list node 
+          // and go all the way to the end
+while (tail.Next != null)
+tail = tail.Next;
+
+// ------------------------------------------------------------
+// Assign variables
+// ------------------------------------------------------------
+
+firstNode = linkedList.Head;
+secondNode = tail;
+numberOfRun = linkedList.Length / 2; 
+// Division will always be integer since the numberOfRun variable is an integer
+
+// ------------------------------------------------------------
+// Swap node’s objects
+// ------------------------------------------------------------
+
+object tempObject; // This will be used in the swapping 2 objects
+for (int i=0; i < numberOfRun; i++)
+{
+// Swap the objects by using a 3rd temporary variable
+tempObject = firstNode.Item;
+firstNode.Item = secondNode.Item;
+secondNode.Item = tempObject;
+
+// Hop to the next node from the beginning and previous node from the end
+firstNode = firstNode.Next;
+secondNode = secondNode.Previous;
+}
+} 

@@ -1,0 +1,135 @@
+Binary Search Tree Traversal:
+ 
+You can learn how to implement Binary search Tree in C# and Insert nodes in BST here.
+
+There are three traversal methods used with Binary Search Tree: inorder, preorder, and postorder.
+– An inorder traversal visits all the nodes in a BST in ascending order of the node key values.
+– A preorder traversal visits the root node first, followed by the nodes in the subtrees under the left child of the root, followed by the nodes in the subtrees under the right child of the root
+– A postorder traversal, the method first recurses over the left subtrees and then over the right subtrees.
+
+
+ 
+ class Node
+    {
+        public int item;
+        public Node left;
+        public Node right;
+        public void display()
+        {
+            Console.Write("[");
+            Console.Write(item);
+            Console.Write("]");
+        }
+    }
+    class Tree
+    {
+        public Node root;
+        public Tree()
+        {
+            root = null;
+        }
+        public Node ReturnRoot()
+        {
+            return root;
+        }
+        public void Insert(int id)
+        {
+            Node newNode = new Node();
+            newNode.item = id;
+            if (root == null)
+                root = newNode;
+            else
+            {
+                Node current = root;
+                Node parent;
+                while (true)
+                {
+                    parent = current;
+                    if (id < current.item)
+                    {
+                        current = current.left;
+                        if (current == null)
+                        {
+                            parent.left = newNode;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        current = current.right;
+                        if (current == null)
+                        {
+                            parent.right = newNode;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        public void Preorder(Node Root)
+        {
+            if (Root != null)
+            {
+                Console.Write(Root.item + " ");
+                Preorder(Root.left);
+                Preorder(Root.right);
+            }
+        }
+        public void Inorder(Node Root)
+        {
+            if (Root != null)
+            {
+                Inorder(Root.left);
+                Console.Write(Root.item + " ");
+                Inorder(Root.right);
+            }
+        }
+        public void Postorder(Node Root)
+        {
+            if (Root != null)
+            {
+                Postorder(Root.left);
+                Postorder(Root.right);
+                Console.Write(Root.item + " ");
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Tree BST = new Tree();
+            BST.Insert(30);
+            BST.Insert(35);
+            BST.Insert(57);
+            BST.Insert(15);
+            BST.Insert(63);
+            BST.Insert(49);
+            BST.Insert(89);
+            BST.Insert(77);
+            BST.Insert(67);
+            BST.Insert(98);
+            BST.Insert(91);
+            Console.WriteLine("Inorder Traversal : ");
+            BST.Inorder(BST.ReturnRoot());
+            Console.WriteLine(" ");
+            Console.WriteLine();
+            Console.WriteLine("Preorder Traversal : ");
+            BST.Preorder(BST.ReturnRoot());
+            Console.WriteLine(" ");
+            Console.WriteLine();
+            Console.WriteLine("Postorder Traversal : ");
+            BST.Postorder(BST.ReturnRoot());
+            Console.WriteLine(" ");
+            Console.ReadLine();
+        }
+    }
+
+ 
+Output:
+Inorder Traversal :
+15 30 35 49 57 63 67 77 89 91 98
+Preorder Traversal :
+30 15 35 57 49 63 89 77 67 98 91
+Postorder Traversal :
+15 49 67 77 91 98 89 63 57 35 30
